@@ -6,7 +6,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 $url = rtrim($url, "/");
 $urlObjects = explode('/', $url);
 
-if ($urlObjects[1]){
+if ($urlObjects[1]=="MVC"){
     unset($urlObjects[1]);
     $urlObjects = array_values($urlObjects);
 }
