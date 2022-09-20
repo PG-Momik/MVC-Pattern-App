@@ -1,6 +1,6 @@
 <?php
-
-//require_once '../Misc/Routes.php';
+error_reporting(1);
+require_once 'Misc/Routes.php';
 require_once 'HomeController.php';
 require_once 'CustomersController.php';
 require_once 'AboutController.php';
@@ -22,28 +22,40 @@ class MainController
         switch ($method) {
             case "GET":
                 switch ($url) {
-                    case "home":
+                    case Routes::HOME:
                         (new HomeController())->index();
                         break;
-                    case "aboutus":
+                    case Routes::ABOUT:
                         (new AboutController())->index();
                         break;
-                    case "customers":
+                    case Routes::CUSTOMERS:
                         (new CustomersController())->index();
                         break;
-                    case "customers/register":
-                        (new CustomersController())->registerView();
+                    case Routes::REGISTER:
+                        (new CustomersController())->register();
+                        break;
+                    case Routes::LOGIN:
+                        (new CustomersController())->login();
+                        break;
+                    case Routes::PROFILE:
+                        (new CustomersController())->profile();
+                        break;
+                    case Routes::LOGOUT:
+                        (new CustomersController())->logout();
                         break;
                 }
                 break;
             case "POST":
                 switch ($url) {
-                    case "home":
+                    case Routes::HOME:
                         $data = $_POST;
                         (new HomeController())->show($data);
                         break;
-                    case 'customers/register':
-                        (new CustomersController())->register($_POST);
+                    case Routes::REGISTER:
+                        (new CustomersController())->register($_POST, $method);
+                        break;
+                    case Routes::LOGIN:
+                        (new CustomersController())->login($_POST, $method);
                         break;
                 }
                 break;
