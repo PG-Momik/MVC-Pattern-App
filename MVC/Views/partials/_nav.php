@@ -3,8 +3,10 @@
 require_once 'Misc/Helper.php';
 require_once 'Misc/Routes.php';
 
-session_suru();
+use Misc\Helper;
+use Misc\Routes;
 
+Helper::sessionSuru();
 ?>
 <nav class="navbar">
     <a href="<?= Routes::BASE . Routes::HOME ?>" class="nav-link">Home</a>

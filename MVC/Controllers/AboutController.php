@@ -1,8 +1,16 @@
 <?php
 
+namespace Controllers;
+
 class AboutController
 {
-    public function index(){
+
+    /**
+     * @return void
+     */
+    public function index(): void
+    {
         include_once 'Views/Aboutus.php';
     }
+
 }

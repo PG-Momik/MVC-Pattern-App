@@ -1,23 +1,41 @@
 <?php
+
+namespace Controllers;
+
 error_reporting(1);
+
 require_once 'Misc/Routes.php';
-require_once 'HomeController.php';
-require_once 'CustomersController.php';
-require_once 'AboutController.php';
+require_once 'Controllers/HomeController.php';
+require_once 'Controllers/CustomersController.php';
+require_once 'Controllers/AboutController.php';
+
+use Misc\Routes;
+use Models\Customer;
+
 
 class MainController
 {
+
     public string $method = 'GET';
     public string $url = 'home';
 
-    public function __construct($url = 'home', $method = "GET")
+    /**
+     * @param string $url
+     * @param string $method
+     */
+    public function __construct(string $url = 'home', string $method = "GET")
     {
         $this->url = $url;
         $this->method = $method;
         $this->redirect($url, $method);
     }
 
-    private function redirect($url, $method): void
+    /**
+     * @param string $url
+     * @param string $method
+     * @return void
+     */
+    private function redirect(string $url, string $method): void
     {
         switch ($method) {
             case "GET":
@@ -40,6 +58,9 @@ class MainController
                     case Routes::PROFILE:
                         (new CustomersController())->profile();
                         break;
+                    case Routes::DELETE:
+                        (new CustomersController())->delete($_GET['id']);
+                        break;
                     case Routes::LOGOUT:
                         (new CustomersController())->logout();
                         break;
@@ -47,10 +68,6 @@ class MainController
                 break;
             case "POST":
                 switch ($url) {
-                    case Routes::HOME:
-                        $data = $_POST;
-                        (new HomeController())->show($data);
-                        break;
                     case Routes::REGISTER:
                         (new CustomersController())->register($_POST, $method);
                         break;
@@ -61,4 +78,5 @@ class MainController
                 break;
         }
     }
+
 }
