@@ -1,3 +1,1 @@
-# TODO
-- Research MVC.
-- Build aafnai MVC.
+# Simple MVC pattern web app.
