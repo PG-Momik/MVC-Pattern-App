@@ -1,6 +1,6 @@
 <?php
 
-namespace Controllers;
+namespace MVC\Controllers;
 
 error_reporting(1);
 
@@ -9,8 +9,8 @@ require_once 'Controllers/HomeController.php';
 require_once 'Controllers/CustomersController.php';
 require_once 'Controllers/AboutController.php';
 
-use Misc\Routes;
-use Models\Customer;
+use MVC\Misc\Routes;
+use MVC\Models\Customer;
 
 
 class MainController

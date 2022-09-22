@@ -1,14 +1,14 @@
 <?php
 
-namespace Controllers;
+namespace MVC\Controllers;
 
 require_once 'Models/Customer.php';
 require_once 'Misc/Helper.php';
 require_once 'Misc/Routes.php';
 
-use Misc\Helper;
-use Misc\Routes;
-use Models\Customer;
+use MVC\Misc\Helper;
+use MVC\Misc\Routes;
+use MVC\Models\Customer;
 
 class CustomersController
 {

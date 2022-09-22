@@ -1,10 +1,10 @@
 <?php
 
-namespace Models;
+namespace MVC\Models;
 
 require_once 'Misc/Database.php';
 
-use Misc\Database;
+use MVC\Misc\Database;
 use PDO;
 
 class Customer extends Database

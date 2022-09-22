@@ -1,8 +1,8 @@
-<?php
+git<?php
 
-require_once 'Controllers/MainController.php';
+require_once 'vendor/autoload.php';
 
-use Controllers\MainController;
+use MVC\Controllers\MainController;
 
 $url = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
